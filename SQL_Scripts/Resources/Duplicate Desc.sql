@@ -1,0 +1,4 @@
+SELECT RS_Desc, COUNT(*)
+FROM dbo.Resources (NOLOCK) 
+GROUP BY RS_Desc
+HAVING COUNT(*) > 1

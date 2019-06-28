@@ -1,3 +1,26 @@
+DECLARE 
+	@Pos1	int = 6,
+	@Pos2	int = 7,
+	@DateFormat	int = 10,
+	@RegExp	varchar(120)
+
+SET @RegExp = '%[0-9]/[0-9]/[0-9][0-9]%'
+
+Select 
+	RS_SysID
+	, patindex(@RegExp,SUBSTRING(RS_LongDesc,LEN(RS_LongDesc)-@Pos1,@Pos2)) T_PatIndex
+	, SUBSTRING(RS_LongDesc,LEN(RS_LongDesc)-@Pos1,@Pos2) AS Txt_SubString
+--	, CONVERT(date,SUBSTRING(RS_LongDesc,LEN(RS_LongDesc)-@Pos1,@Pos2),@DateFormat) AS New_Date
+	, RS_LongDesc
+FROM dbo.Resources (NOLOCK) 
+WHERE RS_EntryDT IS NULL 
+--	AND patindex(@RegExp,SUBSTRING(RS_LongDesc,LEN(RS_LongDesc)-@Pos1,@Pos2)) > 0
+ORDER BY RS_SysID
+
+
+
+
+
 --	M/D/YY
 Select 
 	RS_SysID

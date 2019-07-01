@@ -1,7 +1,8 @@
 
 EXEC dbo.RS_ParseLongDesc_Fav_SP
 
--- Review any bad records
+--  Review Bad Entries
+
 SELECT
 	RS_SysID
 	, RS_FavoriteFlag

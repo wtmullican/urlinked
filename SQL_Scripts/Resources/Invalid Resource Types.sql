@@ -1,4 +1,3 @@
-SELECT RS_RST_SysID, *
+SELECT *
 FROM dbo.Resources (NOLOCK) 
-WHERE RS_LongDesc LIKE '%[)]%'
-	AND RS_LongDesc NOT LIKE '%[(]%'
+WHERE RS_RST_SysID IS NULL

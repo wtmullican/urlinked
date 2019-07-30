@@ -1,0 +1,5 @@
+TRUNCATE TABLE dbo.XML_Import
+
+EXEC dbo.Imp_XMLFile_SP NULL, NULL, NULL, 'D:\Google Drive\_Current\You Are Linked\2019-07-30-xml.xml'
+
+SELECT * FROM dbo.XML_Import
